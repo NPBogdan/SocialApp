@@ -10,6 +10,11 @@ module.exports = {
     ],
 
     theme: {
+        screens: {
+          'md':'640px',
+          'ls':'768px',
+          'xl':'1024px',
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
