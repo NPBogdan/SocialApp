@@ -39,8 +39,13 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime'
     ];
+
+    public function avatar()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?d=mp';
+    }
 
     public function following()
     {
@@ -58,6 +63,6 @@ class User extends Authenticatable
 
     public function blastsFromFollowing()
     {
-        return $this->hasManyThrough(Blast::class,Follower::class,'user_id','user_id','id','following_id');
+        return $this->hasManyThrough(Blast::class, Follower::class, 'user_id', 'user_id', 'id', 'following_id');
     }
 }
