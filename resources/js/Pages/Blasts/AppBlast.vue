@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-
 import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
 
 const props = defineProps({
