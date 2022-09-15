@@ -1,25 +1,26 @@
 import axios from 'axios'
 
 export default {
-    namespaced:true,
+    namespaced: true,
     state: {
         blasts: []
     },
     getters: {
-        blasts(state){
+        blasts(state) {
             return state.blasts;
         }
     },
     mutations: {
-        PUSH_BLASTS(state,data){
+        PUSH_BLASTS(state, data) {
             state.blasts.push(...data)
         }
     },
     actions: {
-        async getBlasts({commit}){
-            let response = await axios.get('/api/cronologie');
-            console.log(response);
-            commit('PUSH_BLASTS',response.data.data);
+        async getBlasts({commit}, url) {
+            let response = await axios.get(url);
+            commit('PUSH_BLASTS', response.data.data);
+            return response;
         }
+
     }
 }
