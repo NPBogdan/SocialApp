@@ -1,12 +1,14 @@
 <template>
     <div>
+        <div class="border-b-8 border-gray-800 p-4 w-full">
+            <app-blast-compune/>
+        </div>
         <app-blast
             v-for="blast in blasts"
             :key="blast.id"
             :blast="blast"
         />
     </div>
-
     <div
         v-if="blasts.length"
         v-observe-visibility="scrollBottomCronologie">
@@ -17,9 +19,10 @@
 <script>
 import {mapActions, mapGetters} from 'vuex'
 import AppBlast from "@/Pages/Blasts/AppBlast.vue";
+import AppBlastCompune from "@/Pages/Compune/AppBlastCompune.vue";
 
 export default {
-    components: {AppBlast},
+    components: {AppBlast,AppBlastCompune},
     data: function () {
         return {
             page: 1,
@@ -38,9 +41,8 @@ export default {
         ...mapActions({
             getBlasts: 'cronologie/getBlasts'
         }),
-        loadBlasts(){
+        loadBlasts() {
             this.getBlasts(this.urlWithPage).then((response) => {
-                console.log(response);
                 this.lastPage = response.data.meta.last_page
             }).catch(function (error) {
                 console.log(error)

@@ -12,7 +12,6 @@ import {createStore} from 'vuex';
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 import cronologie from "@/Store/cronologie";
-
 const store = createStore({
     modules: {
         cronologie
@@ -23,7 +22,7 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({el, app, props, plugin}) {
-        return createApp({render: () => h(app, props)})
+        const myApp = createApp({render: () => h(app, props)})
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(store)
@@ -35,8 +34,12 @@ createInertiaApp({
                 },
                 update: ObserveVisibility.update,
                 unmounted: ObserveVisibility.unbind,
-            })
-            .mount(el);
+            });
+
+            // config global property after createApp and before mount
+            myApp.config.globalProperties.$user = User;
+
+            myApp.mount(el);
     },
 });
 

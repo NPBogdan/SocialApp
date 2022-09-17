@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 
 class CronologieController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware(['auth:sanctum']);
+    }
+
     public function index(Request $request){
-        $blasts = $request->user()->blastsFromFollowing()->paginate(3);
+        $blasts = $request->user()->blastsFromFollowing()->latest()->paginate(5);
 
         return new BlastCollection($blasts);
     }
