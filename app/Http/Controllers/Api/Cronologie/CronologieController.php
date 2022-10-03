@@ -14,7 +14,7 @@ class CronologieController extends Controller
     }
 
     public function index(Request $request){
-        $blasts = $request->user()->blastsFromFollowing()->latest()->paginate(5);
+        $blasts = $request->user()->blastsFromFollowing()->latest()->with(['user'])->paginate(5);
 
         return new BlastCollection($blasts);
     }
