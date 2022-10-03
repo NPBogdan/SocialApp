@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Blasts;
 
+use App\Blasts\BlastType;
 use App\Events\Blasts\BlastWasCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blasts\BlastStoreRequest;
@@ -14,7 +15,9 @@ class BlastController extends Controller
     }
 
     public function store(BlastStoreRequest $request){
-         $blast = $request->user()->blasts()->create($request->only('body'));
+         $blast = $request->user()->blasts()->create(array_merge($request->only('body'),[
+             'type' => BlastType::BLAST
+         ]));
 
          broadcast(new BlastWasCreated($blast));
     }
