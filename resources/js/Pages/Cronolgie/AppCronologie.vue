@@ -43,6 +43,7 @@ export default {
         }),
         loadBlasts() {
             this.getBlasts(this.urlWithPage).then((response) => {
+
                 this.lastPage = response.data.meta.last_page
             }).catch(function (error) {
                 console.log(error)
@@ -62,6 +63,11 @@ export default {
     },
     mounted() {
         this.loadBlasts()
+
+        Echo.private(`cronologie.${this.$user.id}`)
+            .listen('.BlastWasCreated',(e) =>{
+                console.log(e);
+            })
     }
 }
 </script>
