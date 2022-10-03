@@ -7,12 +7,15 @@ export default {
     },
     getters: {
         blasts(state) {
-            return state.blasts;
+            return state.blasts.sort((a,b) => b.created_at - a.created_at);
         }
     },
     mutations: {
         PUSH_BLASTS(state, data) {
-            state.blasts.push(...data)
+            state.blasts.push(...data.filter((blast)=>{
+                //Filtram blasturile pentru a nu exista 2 cu acelasi id in cronologie atunci cand o impingem in state
+                return !state.blasts.map((b) => b.id).includes(blast.id)
+            }))
         }
     },
     actions: {

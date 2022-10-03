@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapActions, mapGetters , mapMutations} from 'vuex'
 import AppBlast from "@/Pages/Blasts/AppBlast.vue";
 import AppBlastCompune from "@/Pages/Compune/AppBlastCompune.vue";
 
@@ -40,6 +40,9 @@ export default {
     methods: {
         ...mapActions({
             getBlasts: 'cronologie/getBlasts'
+        }),
+        ...mapMutations({
+            PUSH_BLASTS: 'cronologie/PUSH_BLASTS'
         }),
         loadBlasts() {
             this.getBlasts(this.urlWithPage).then((response) => {
@@ -66,7 +69,7 @@ export default {
 
         Echo.private(`cronologie.${this.$user.id}`)
             .listen('.BlastWasCreated',(e) =>{
-                console.log(e);
+                this.PUSH_BLASTS([e]);
             })
     }
 }
