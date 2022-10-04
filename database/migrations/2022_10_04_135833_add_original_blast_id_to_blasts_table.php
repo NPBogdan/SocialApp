@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blasts', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('body',250)->nullable();
-            $table->timestamps();
+        Schema::table('blasts', function (Blueprint $table) {
+            $table->unsignedBigInteger('original_blast_id',false)->index()->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('original_blast_id')->references('id')->on('blasts')->onDelete('cascade');
         });
     }
 
@@ -30,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blasts');
+        Schema::table('blasts', function (Blueprint $table) {
+            $table->dropColumn('original_blast_id');
+        });
     }
 };

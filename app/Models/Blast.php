@@ -13,4 +13,8 @@ class Blast extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function originalBlast(){
+        return $this->hasOne(Blast::class,'id','original_blast_id');
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class BlastResource extends JsonResource
@@ -18,6 +17,8 @@ class BlastResource extends JsonResource
         return [
             'id' => $this->id,
             'body' => $this->body,
+            'type' => $this->type,
+            'original_blast' => new BlastResource($this->originalBlast),
             'user' => new UserResource($this->user),
             'created_at' => $this->created_at->timestamp
         ];
