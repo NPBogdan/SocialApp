@@ -1,10 +1,3 @@
-<script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import {Head} from '@inertiajs/inertia-vue3';
-import AppCronologie from "@/Pages/Cronolgie/AppCronologie.vue";
-
-</script>
-
 <template>
     <Head title="Dashboard"/>
     <BreezeAuthenticatedLayout>
@@ -16,3 +9,14 @@ import AppCronologie from "@/Pages/Cronolgie/AppCronologie.vue";
         </div>
     </BreezeAuthenticatedLayout>
 </template>
+
+<script>
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import {Head} from '@inertiajs/inertia-vue3';
+import AppCronologie from "@/Pages/Cronolgie/AppCronologie.vue";
+
+export default {
+    components:{AppCronologie,Head,BreezeAuthenticatedLayout}
+}
+
+</script>

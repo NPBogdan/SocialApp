@@ -23,11 +23,10 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 Route::get('/api/cronologie',[App\Http\Controllers\Api\Cronologie\CronologieController::Class,'index']);
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth:sanctum', 'verified'])->name('dashboard');
-
-Route::get('/api/cronologie',[App\Http\Controllers\Api\Cronologie\CronologieController::Class,'index']);
 
 require __DIR__.'/auth.php';
