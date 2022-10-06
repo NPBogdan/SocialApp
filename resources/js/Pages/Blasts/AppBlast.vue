@@ -8,12 +8,21 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            blast: {
-                required: true,
-                type: Object
-            }
+import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
+import AppBlastVariantReblast from "@/Pages/Blasts/Variants/AppBlastVariantReblast.vue";
+import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.vue";
+
+export default {
+    components:{AppBlastUsername,AppBlastVariantReblast,AppBlastVariantBlast},
+    props: {
+        blast: {
+            required: true,
+            type: Object
         }
     }
+}
 </script>
+
+<style scoped>
+
+</style>

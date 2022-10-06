@@ -6,7 +6,7 @@
 
         <div>
             <app-blast-username
-                :user="blast.user.name"
+                :user="blast.user"
             />
             <p class="text-gray-300 whitespace-pre-wrap">
                 {{ blast.body }}
