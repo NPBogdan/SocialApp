@@ -12,14 +12,21 @@
                 {{ blast.body }}
             </p>
         </div>
+
+        <AppBlastVariantBlast
+            class="border border-gray-700 rounded-lg mt-4"
+            :blast="blast.original_blast"
+        />
+
     </div>
 </template>
 
 <script>
 import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
+import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.vue";
 
 export default {
-    components: {AppBlastUsername},
+    components: {AppBlastVariantBlast, AppBlastUsername},
     props: {
         blast: {
             required: true,
