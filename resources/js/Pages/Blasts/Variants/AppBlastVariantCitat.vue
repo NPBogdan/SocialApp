@@ -18,15 +18,17 @@
             :blast="blast.original_blast"
         />
 
+        <app-blast-action-group />
     </div>
 </template>
 
 <script>
 import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
 import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.vue";
+import AppBlastActionGroup from "@/Pages/Blasts/Actiuni/AppBlastActionGroup.vue";
 
 export default {
-    components: {AppBlastVariantBlast, AppBlastUsername},
+    components: {AppBlastActionGroup, AppBlastVariantBlast, AppBlastUsername},
     props: {
         blast: {
             required: true,

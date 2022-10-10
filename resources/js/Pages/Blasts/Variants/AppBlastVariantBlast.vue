@@ -11,15 +11,17 @@
             <p class="text-gray-300 whitespace-pre-wrap">
                 {{ blast.body }}
             </p>
+
+            <app-blast-action-group />
         </div>
     </div>
 </template>
 
 <script>
 import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
-
+import AppBlastActionGroup from "@/Pages/Blasts/Actiuni/AppBlastActionGroup.vue"
 export default {
-    components: {AppBlastUsername},
+    components: {AppBlastUsername,AppBlastActionGroup},
     props: {
         blast: {
             required: true,
