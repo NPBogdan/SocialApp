@@ -17,4 +17,8 @@ class Blast extends Model
     public function originalBlast(){
         return $this->hasOne(Blast::class,'id','original_blast_id');
     }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
 }
