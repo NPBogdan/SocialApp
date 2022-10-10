@@ -4,13 +4,10 @@
             <img :src="$user.avatar" class="w-12 rounded-full">
         </div>
         <div class="flex-grow">
-            <textarea
-                class="bg-gray-900 w-full outline-none text-lg resize-none mb-2"
-                placeholder="Care este treaba?"
-                autofocus
-                v-model="form.body">
-            </textarea>
-
+            {{form}}
+            <app-blast-compune-textarea
+                v-model="form.body"
+            />
             <div class="flex justify-between">
                 <div>
                     Actions
@@ -29,20 +26,23 @@
 
 <script>
 import axios from 'axios'
+import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
 
-export default{
-    data(){
-        return{
-            form:{
-                body:''
+export default {
+    components: {AppBlastCompuneTextarea},
+    data() {
+        return {
+            form: {
+                body: ''
             }
         }
     },
-    methods:{
-        async submit(){
-            await axios.post('/api/blasts',this.form)
+    methods: {
+        async submit() {
+            await axios.post('/api/blasts', this.form)
+            this.form.body = ''
         }
-    }
+    },
 }
 </script>
 
