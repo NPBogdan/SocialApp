@@ -46,3 +46,10 @@ createInertiaApp({
 });
 
 InertiaProgress.init({color: '#4B5563'});
+
+Echo.channel('blasts').listen('.BlastLikesWereUpdated',(event) => {
+    store.commit('cronologie/SET_LIKES', {
+        id:event.id,
+        count:event.count
+    })
+})
