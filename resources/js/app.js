@@ -13,6 +13,7 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 import cronologie from "@/Store/cronologie";
 import likes from "@/Store/likes";
+
 const store = createStore({
     modules: {
         cronologie,
@@ -38,18 +39,21 @@ createInertiaApp({
                 unmounted: ObserveVisibility.unbind,
             });
 
-            // config global property after createApp and before mount
-            myApp.config.globalProperties.$user = User;
+        // config global property after createApp and before mount
+        myApp.config.globalProperties.$user = User;
 
-            myApp.mount(el);
+        myApp.mount(el);
     },
 });
 
 InertiaProgress.init({color: '#4B5563'});
 
-Echo.channel('blasts').listen('.BlastLikesWereUpdated',(event) => {
+Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
+    if (event.user_id === User.id) {
+        store.dispatch('likes/syncLike', event.id);
+    }
     store.commit('cronologie/SET_LIKES', {
-        id:event.id,
-        count:event.count
+        id: event.id,
+        count: event.count
     })
 })

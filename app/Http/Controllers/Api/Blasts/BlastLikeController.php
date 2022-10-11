@@ -25,5 +25,6 @@ class BlastLikeController extends Controller
     public function destroy(BLast $blast, Request $request)
     {
         $request->user()->likes->where('blast_id',$blast->id)->first()->delete();
+        broadcast(new BlastLikesWereUpdate($request->user(),$blast));
     }
 }
