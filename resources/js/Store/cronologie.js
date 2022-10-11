@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {get} from 'lodash'
 export default {
     namespaced: true,
     state: {
@@ -21,6 +21,10 @@ export default {
             state.blasts = state.blasts.map((t) => {
                 if (t.id === id) {
                     t.likes_count = count
+                }
+                //Verificam daca proprietatea 'id' exista in 'original_blast pentru ca unele blasturi nu sunt redistribuite
+                if(get(t.original_blast,'id') === id){
+                    t.original_blast.likes_count = count
                 }
                 return t;
             })

@@ -30,13 +30,15 @@ export default {
         async unlikeBlast(_, blast) {
             await axios.delete(`/api/blasts/${blast.id}/likes`)
         },
-        syncLike({commit, state}, data) {
+        syncLike({commit, state}, id) {
             //exista like-ul?
             if (state.likes.includes(id)) {
+                //adauga like
                 console.log('scoate like')
                 commit('ELIMINATE_LIKE', id)
                 return
             }
+            //elimina like
             console.log('adauga like')
             commit('PUSH_LIKE', id)
         }
