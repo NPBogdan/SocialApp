@@ -18,7 +18,9 @@
             :blast="blast.original_blast"
         />
 
-        <app-blast-action-group />
+        <app-blast-action-group
+        :blast="blast"
+        />
     </div>
 </template>
 

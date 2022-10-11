@@ -12,9 +12,11 @@ import {createStore} from 'vuex';
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 import cronologie from "@/Store/cronologie";
+import likes from "@/Store/likes";
 const store = createStore({
     modules: {
-        cronologie
+        cronologie,
+        likes
     }
 })
 

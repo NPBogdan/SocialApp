@@ -22,6 +22,7 @@ export default {
         async getBlasts({commit}, url) {
             let response = await axios.get(url);
             commit('PUSH_BLASTS', response.data.data);
+            commit('likes/PUSH_LIKES',response.data.meta.likes,{root:true})
             return response;
         }
 

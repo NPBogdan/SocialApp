@@ -19,6 +19,7 @@ class BlastResource extends JsonResource
             'body' => $this->body,
             'type' => $this->type,
             'original_blast' => new BlastResource($this->originalBlast),
+            'likes_count' => $this->likes->count(),
             'user' => new UserResource($this->user),
             'created_at' => $this->created_at->timestamp
         ];

@@ -11,8 +11,9 @@
             <p class="text-gray-300 whitespace-pre-wrap">
                 {{ blast.body }}
             </p>
-
-            <app-blast-action-group />
+            {{blast.likes_count}}
+            <app-blast-action-group
+            :blast="blast"/>
         </div>
     </div>
 </template>

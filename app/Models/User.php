@@ -66,8 +66,18 @@ class User extends Authenticatable
         return $this->hasManyThrough(Blast::class, Follower::class, 'user_id', 'user_id', 'id', 'following_id');
     }
 
+    //Trebuie sa verificam ca un utilizator sa poate da like o singura data unei postari
+    public function hasLiked(Blast $blast){
+        return $this->likes->contains('blast_id',$blast->id);
+    }
 
-    public function blasts(){
+    public function blasts()
+    {
         return $this->hasMany(Blast::class);
-}
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

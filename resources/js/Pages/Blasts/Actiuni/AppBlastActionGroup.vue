@@ -7,7 +7,8 @@
             <app-blast-reblast-action/>
         </li>
         <li class="w-3/12">
-            <app-blast-like-action/>
+            <app-blast-like-action
+            :blast="blast"/>
         </li>
     </ul>
 </template>
@@ -19,7 +20,13 @@ import AppBlastLikeAction from "@/Pages/Blasts/Actiuni/AppBlastLikeAction.vue";
 
 export default {
     name: "AppBlastActionGroup",
-    components: {AppBlastReblastAction, AppBlastLikeAction, AppBlastReplyAction}
+    components: {AppBlastReblastAction, AppBlastLikeAction, AppBlastReplyAction},
+    props:{
+        blast:{
+            required:true,
+            type: Object
+        }
+    }
 }
 </script>
 
