@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import AppBlastUsername from "@/Pages/Blasts/AppBlastUsername.vue";
 import AppBlastVariantReblast from "@/Pages/Blasts/Variants/AppBlastVariantReblast.vue";
 import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.vue";
 import AppBlastVariantCitat from "@/Pages/Blasts/Variants/AppBlastVariantCitat.vue";
 
 export default {
-    components:{AppBlastUsername,AppBlastVariantReblast,AppBlastVariantBlast,AppBlastVariantCitat},
+    name:'AppBlast',
+    components:{AppBlastVariantReblast,AppBlastVariantBlast,AppBlastVariantCitat},
     props: {
         blast: {
             required: true,

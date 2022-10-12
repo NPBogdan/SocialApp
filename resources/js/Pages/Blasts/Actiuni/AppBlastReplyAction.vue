@@ -15,7 +15,3 @@ export default {
     name: "AppBlastReplyAction"
 }
 </script>
-
-<style scoped>
-
-</style>

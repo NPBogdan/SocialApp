@@ -8,6 +8,7 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {ObserveVisibility} from 'vue-observe-visibility';
 import {createStore} from 'vuex';
+import vClickOutside from "click-outside-vue3";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -29,6 +30,14 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(store)
+            .directive('clickOutside',{
+                beforeMount: (el, binding, vnode) => {
+                    vnode.context = binding.instance;
+                    vClickOutside.bind(el, binding, vnode);
+                },
+                update: vClickOutside.update,
+                unmounted: vClickOutside.unbind,
+            })
             //Am introdus directiva din pachetul observe-visibility
             .directive('observe-visibility', {
                 beforeMount: (el, binding, vnode) => {

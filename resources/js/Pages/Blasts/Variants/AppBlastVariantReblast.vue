@@ -18,10 +18,10 @@
 
 <script>
 import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.vue";
-
+import AppBlastActionGroup from "@/Pages/Blasts/Actiuni/AppBlastActionGroup.vue";
 export default {
     components:{
-        AppBlastVariantBlast
+        AppBlastVariantBlast,AppBlastActionGroup
     },
     props: {
         blast: {

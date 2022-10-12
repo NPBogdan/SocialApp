@@ -11,16 +11,12 @@
             <p class="text-gray-300 whitespace-pre-wrap">
                 {{ blast.body }}
             </p>
+
+            <AppBlastVariantBlast
+                class="border border-gray-700 rounded-lg mt-4"
+                :blast="blast.original_blast"
+            />
         </div>
-
-        <AppBlastVariantBlast
-            class="border border-gray-700 rounded-lg mt-4"
-            :blast="blast.original_blast"
-        />
-
-        <app-blast-action-group
-        :blast="blast"
-        />
     </div>
 </template>
 
