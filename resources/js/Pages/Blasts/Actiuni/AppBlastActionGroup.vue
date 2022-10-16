@@ -4,7 +4,8 @@
             <app-blast-reply-action/>
         </li>
         <li class="w-3/12">
-            <app-blast-reblast-action/>
+            <app-blast-reblast-action
+                :blast="blast"/>
         </li>
         <li class="w-3/12">
             <app-blast-like-action

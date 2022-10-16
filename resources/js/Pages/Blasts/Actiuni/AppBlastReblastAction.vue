@@ -3,7 +3,7 @@
         <template #trigger>
             <a href="#" class="flex items-center text-base">
                 <BeakerIcon class="h-6 w-6 text-blue-500"/>
-                <span class="text-gray-600">0</span>
+                <span class="text-gray-600">{{ blast.reblasts_count }}</span>
             </a>
         </template>
         <app-dropdown-item>
@@ -22,6 +22,12 @@ import {BeakerIcon} from '@heroicons/vue/24/solid'
 
 export default {
     name: "AppBlastReblastAction",
-    components: {AppDropdownItem, AppDropdown, BeakerIcon}
+    components: {AppDropdownItem, AppDropdown, BeakerIcon},
+    props:{
+        blast:{
+            required:true,
+            type: Object
+        }
+    },
 }
 </script>

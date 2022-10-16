@@ -30,14 +30,6 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(store)
-            .directive('clickOutside',{
-                beforeMount: (el, binding, vnode) => {
-                    vnode.context = binding.instance;
-                    vClickOutside.bind(el, binding, vnode);
-                },
-                update: vClickOutside.update,
-                unmounted: vClickOutside.unbind,
-            })
             //Am introdus directiva din pachetul observe-visibility
             .directive('observe-visibility', {
                 beforeMount: (el, binding, vnode) => {

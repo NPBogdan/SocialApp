@@ -21,4 +21,8 @@ class Blast extends Model
     public function likes(){
         return $this->hasMany(Like::class);
     }
+
+    public function reblasts(){
+        return $this->hasMany(Blast::class,'original_blast_id');
+    }
 }
