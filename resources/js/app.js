@@ -12,13 +12,15 @@ import vClickOutside from "click-outside-vue3";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
-import cronologie from "@/Store/cronologie";
-import likes from "@/Store/likes";
+import cronologie from "@/Store/cronologie.js";
+import likes from "@/Store/likes.js";
+import reblasts from "@/Store/reblasts.js"
 
 const store = createStore({
     modules: {
         cronologie,
-        likes
+        likes,
+        reblasts
     }
 })
 

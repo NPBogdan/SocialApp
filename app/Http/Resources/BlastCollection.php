@@ -24,7 +24,8 @@ class BlastCollection extends ResourceCollection
     {
         return [
             'meta' => [
-                'likes' => $this->likes($request)
+                'likes' => $this->likes($request),
+                'reblasts' => $this->reblasts($request),
             ]
         ];
     }
@@ -33,6 +34,24 @@ class BlastCollection extends ResourceCollection
         if(!$user = $request->user()){
             return [];
         }
-        return $user->likes()->whereIn('blast_id',$this->collection->pluck('id'))->pluck('blast_id')->toArray();
+        return $user->likes()
+            ->whereIn('blast_id',
+                $this->collection->pluck('id')->merge($this->collection->pluck('original_blast_id'))
+            )
+            ->pluck('blast_id')
+            ->toArray();
+    }
+
+    protected function reblasts($request){
+        if(!$user = $request->user()){
+            return [];
+        }
+        return $user
+            ->reblasts()
+            ->whereIn('original_blast_id',
+                $this->collection->pluck('id')->merge($this->collection->pluck('original_blast_id'))
+            )
+            ->pluck('original_blast_id')
+            ->toArray();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Blasts\BlastType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -79,5 +80,10 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function reblasts()
+    {
+        return $this->hasMany(Blast::class)->where('type',BlastType::REBLAST)->orWhere('type',BlastType::QUOTE);
     }
 }

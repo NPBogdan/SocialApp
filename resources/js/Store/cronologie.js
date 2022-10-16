@@ -35,6 +35,7 @@ export default {
             let response = await axios.get(url);
             commit('PUSH_BLASTS', response.data.data);
             commit('likes/PUSH_LIKES', response.data.meta.likes, {root: true})
+            commit('reblasts/PUSH_REBLASTS', response.data.meta.reblasts, {root: true})
             return response;
         }
 
