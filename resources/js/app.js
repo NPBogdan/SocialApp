@@ -59,4 +59,12 @@ Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
         id: event.id,
         count: event.count
     })
+}).listen('.BlastReblastsWereUpdated', (event) => {
+    if (event.user_id === User.id) {
+        store.dispatch('reblasts/syncReblast', event.id);
+    }
+    store.commit('cronologie/SET_REBLASTS', {
+        id: event.id,
+        count: event.count
+    })
 })

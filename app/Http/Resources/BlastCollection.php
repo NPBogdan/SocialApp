@@ -34,7 +34,8 @@ class BlastCollection extends ResourceCollection
         if(!$user = $request->user()){
             return [];
         }
-        return $user->likes()
+        return $user
+            ->likes()
             ->whereIn('blast_id',
                 $this->collection->pluck('id')->merge($this->collection->pluck('original_blast_id'))
             )

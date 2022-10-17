@@ -12,7 +12,7 @@ export default {
             this.$emit('click',e)
             this.$parent.close()
         }
-    }
+    },
 }
 </script>
 
