@@ -4,7 +4,6 @@
             <img :src="$user.avatar" class="w-12 rounded-full">
         </div>
         <div class="flex-grow">
-            {{form}}
             <app-blast-compune-textarea
                 v-model="form.body"
             />

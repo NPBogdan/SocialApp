@@ -16,7 +16,7 @@ export default {
     name: "AppDropdown",
     data(){
         return {
-            open:true
+            open:false
         }
     },
     methods:{

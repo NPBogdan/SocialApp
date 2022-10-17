@@ -6,7 +6,6 @@ use App\Blasts\BlastType;
 use App\Events\Blasts\BlastWasCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blasts\BlastStoreRequest;
-use Illuminate\Http\Request;
 
 class BlastController extends Controller
 {

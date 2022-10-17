@@ -25,4 +25,9 @@ class Blast extends Model
     public function reblasts(){
         return $this->hasMany(Blast::class,'original_blast_id');
     }
+
+    //Din blastu-ul in parinte trebuie sa accesam blastul distribuit
+    public function reblastedBlast(){
+        return $this->hasOne(Blast::Class,'original_blast_id','id');
+    }
 }
