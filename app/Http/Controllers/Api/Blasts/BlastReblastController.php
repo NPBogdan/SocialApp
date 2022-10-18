@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Blasts;
 use App\Blasts\BlastType;
 use App\Events\Blasts\BlastReblastsWereUpdated;
 use App\Events\Blasts\BlastWasCreated;
+use App\Events\Blasts\BlastWasDeleted;
 use App\Models\Blast;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,11 @@ class BlastReblastController
     }
 
     public function destroy(Blast $blast,Request $request){
+
+        broadcast(new BlastWasDeleted($blast->reblastedBlast));
+
         $blast->reblastedBlast()->where('user_id',$request->user()->id)->delete();
+
+        broadcast(new BlastReblastsWereUpdated($request->user(),$blast));
     }
 }

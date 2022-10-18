@@ -17,6 +17,13 @@ export default {
                 return !state.blasts.map((b) => b.id).includes(blast.id)
             }))
         },
+        ELIMINATE_BLAST(state,id){
+            state.blasts = state.blasts.filter(
+                (t) => {
+                    return t.id !== id
+                }
+            )
+        },
         SET_LIKES(state, {id, count}) {
             state.blasts = state.blasts.map((t) => {
                 if (t.id === id) {

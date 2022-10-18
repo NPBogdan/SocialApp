@@ -67,4 +67,6 @@ Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
         id: event.id,
         count: event.count
     })
+}).listen('.BlastWasDeleted', (event) => {
+    store.commit('cronologie/ELIMINATE_BLAST',event.id)
 })
