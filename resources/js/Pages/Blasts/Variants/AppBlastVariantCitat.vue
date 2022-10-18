@@ -16,6 +16,9 @@
                 class="border border-gray-700 rounded-lg mt-4"
                 :blast="blast.original_blast"
             />
+
+            <app-blast-action-group
+                :blast="blast" />
         </div>
     </div>
 </template>

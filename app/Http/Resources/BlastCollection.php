@@ -36,7 +36,8 @@ class BlastCollection extends ResourceCollection
         }
         return $user
             ->likes()
-            ->whereIn('blast_id',
+            ->whereIn(
+                'blast_id',
                 $this->collection->pluck('id')->merge($this->collection->pluck('original_blast_id'))
             )
             ->pluck('blast_id')
@@ -49,7 +50,8 @@ class BlastCollection extends ResourceCollection
         }
         return $user
             ->reblasts()
-            ->whereIn('original_blast_id',
+            ->whereIn(
+                'original_blast_id',
                 $this->collection->pluck('id')->merge($this->collection->pluck('original_blast_id'))
             )
             ->pluck('original_blast_id')

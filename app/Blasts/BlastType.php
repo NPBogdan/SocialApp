@@ -6,5 +6,5 @@ class BlastType
 {
     const BLAST = 'blast';
     const REBLAST = 'reblast';
-    const QUOTE = 'quote';
+    const CITAT = 'citat';
 }

@@ -13,6 +13,7 @@ export default {
             this.$parent.close()
         }
     },
+    emits:['click']
 }
 </script>
 

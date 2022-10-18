@@ -5,8 +5,7 @@
         <span
             class="text-gray-600"
             :class="{'text-green-600':reblasted}"
-        >
-                    {{ blast.reblasts_count }}
+        >{{ blast.reblasts_count }}
         </span>
     </a>
 </template>

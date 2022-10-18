@@ -33,12 +33,12 @@ export default {
         syncReblast({commit, state}, id) {
             //exista reblast?
             if (state.reblasts.includes(id)) {
-                //adauga like
+                //elimina reblast
                 console.log('scoate reblastul')
                 commit('ELIMINATE_REBLAST', id)
                 return
             }
-            //elimina reblast
+            //adauga reblast
             console.log('adauga reblast')
             commit('PUSH_REBLAST', id)
         }

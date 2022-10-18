@@ -81,9 +81,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class);
     }
-
+    //Un user poate avea mai multe blasturi distribuite de tip REBLAST sau QUOTE(CITATE)
     public function reblasts()
     {
-        return $this->hasMany(Blast::class)->where('type',BlastType::REBLAST)->orWhere('type',BlastType::QUOTE);
+        return $this->hasMany(Blast::class)
+            ->where('type',BlastType::REBLAST)
+            ->orWhere('type',BlastType::CITAT);
     }
 }
