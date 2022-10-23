@@ -11,7 +11,8 @@
                 <div>
                     Actions
                 </div>
-                <div>
+                <div class="flex items-center justify-end">
+                    <app-blast-compune-limit />
                     <button
                         type="submit"
                         class="bg-red-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none">
@@ -26,9 +27,9 @@
 <script>
 import axios from 'axios'
 import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
-
+import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
 export default {
-    components: {AppBlastCompuneTextarea},
+    components: {AppBlastCompuneTextarea,AppBlastCompuneLimit},
     data() {
         return {
             form: {
