@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@heroicons/vue": "^2.0.12",
+        "@mahdikhashan/vue3-click-outside": "^0.1.2",
         "@vue-hero-icons/outline": "^1.7.2",
         "@vue-hero-icons/solid": "^1.7.2",
         "click-outside-vue3": "^4.0.1",

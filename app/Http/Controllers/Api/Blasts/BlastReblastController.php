@@ -22,7 +22,6 @@ class BlastReblastController
     }
 
     public function destroy(Blast $blast,Request $request){
-
         broadcast(new BlastWasDeleted($blast->reblastedBlast));
 
         $blast->reblastedBlast()->where('user_id',$request->user()->id)->delete();

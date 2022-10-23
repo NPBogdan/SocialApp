@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="flex items-center text-base" @click="$emit('click',$event)">
+    <a href="#" class="flex items-center text-base">
         <BeakerIcon class="h-6 w-6 text-gray-500" :class="{'text-green-600':reblasted}"
         />
         <span

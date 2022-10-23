@@ -1,5 +1,5 @@
 <template>
-    <div class="relative">
+    <div v-click-out-side="close" class="relative">
         <div @click.prevent="open = !open">
             <slot name="trigger"/>
         </div>
@@ -11,16 +11,20 @@
 </template>
 
 <script>
+import clickOutSide from "@mahdikhashan/vue3-click-outside";
 
 export default {
     name: "AppDropdown",
-    data(){
+    directives: {
+        clickOutSide,
+    },
+    data() {
         return {
-            open:false
+            open: false
         }
     },
-    methods:{
-        close(){
+    methods: {
+        close() {
             this.open = false
         }
     },
