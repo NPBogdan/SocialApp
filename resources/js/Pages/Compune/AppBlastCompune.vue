@@ -7,6 +7,7 @@
             <app-blast-compune-textarea
                 v-model="form.body"
             />
+            <span class="text-gray-600"> {{media}}</span>
             <div class="flex justify-between">
                 <ul class="flex items-center">
                     <li class="mr-4">
@@ -16,7 +17,6 @@
                         />
                     </li>
                 </ul>
-
 
                 <div class="flex items-center justify-end">
                     <app-blast-compune-limit
@@ -51,7 +51,8 @@ export default {
             media: {
                 images: [],
                 videos: null
-            }
+            },
+            mediaTypes : {}
         }
     },
     methods: {
@@ -59,10 +60,35 @@ export default {
             await axios.post('/api/blasts', this.form)
             this.form.body = ''
         },
+
         manageMediaSelected(files) {
-            console.log(files)
+            Array.from(files).slice(0, 4).forEach((file) => {
+                if(this.mediaTypes.image.includes(file.type)){
+                    this.media.images.push(file)
+                }
+
+                if(this.mediaTypes.video.includes(file.type)){
+                    this.media.videos = file
+                }
+
+                /*Daca sunt urcate imagini impreuna cu videoclipuri atunci vom sterge imaginile
+                deoarece noi putem sa urcam doar unul dintre cele doua tipuri de media */
+                if(this.media.videos){
+                    this.media.images = []
+                }
+            })
+        },
+
+        //Luam tipurile de media pe care le putem urca
+        async getMediaTypes (){
+            let response = await axios.get('/api/media/types')
+
+            this.mediaTypes = response.data.data
         }
     },
+    mounted() {
+        this.getMediaTypes()
+    }
 }
 </script>
 

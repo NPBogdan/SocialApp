@@ -11,3 +11,5 @@ Route::delete('/blasts/{blast}/likes',[App\Http\Controllers\Api\Blasts\BlastLike
 
 Route::post('/blasts/{blast}/reblasts',[App\Http\Controllers\Api\Blasts\BlastReblastController::Class,'store']);
 Route::delete('/blasts/{blast}/reblasts',[App\Http\Controllers\Api\Blasts\BlastReblastController::Class,'destroy']);
+
+Route::get('/media/types',[App\Http\Controllers\Api\Media\MediaTypesController::Class,'index']);
