@@ -1,13 +1,22 @@
 <template>
     <form class="flex" @submit.prevent="submit">
-        <div class="mr-3">
-            <img :src="$user.avatar" class="w-12 rounded-full">
-        </div>
+
+            <img :src="$user.avatar" class="w-12 w-12 h-12 mr-3 rounded-full" alt="User avatar">
+
         <div class="flex-grow">
             <app-blast-compune-textarea
                 v-model="form.body"
             />
             <span class="text-gray-600"> {{media}}</span>
+
+
+
+            <app-blast-video-preview
+                :video="media.videos"
+                v-if="media.videos"
+            />
+
+
             <div class="flex justify-between">
                 <ul class="flex items-center">
                     <li class="mr-4">
@@ -39,9 +48,10 @@ import axios from 'axios'
 import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
 import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
 import AppBlastCompuneMediaButton from "@/Pages/Compune/Media/AppBlastCompuneMediaButton.vue"
-
+import AppBlastImagePreview from "@/Pages/Compune/Media/AppBlastImagePreview.vue";
+import AppBlastVideoPreview from "@/Pages/Compune/Media/AppBlastVideoPreview.vue";
 export default {
-    components: {AppBlastCompuneTextarea, AppBlastCompuneLimit, AppBlastCompuneMediaButton},
+    components: {AppBlastCompuneTextarea, AppBlastCompuneLimit, AppBlastCompuneMediaButton,AppBlastImagePreview,AppBlastVideoPreview},
     data() {
         return {
             form: {
