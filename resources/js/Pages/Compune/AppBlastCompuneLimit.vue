@@ -1,6 +1,5 @@
 <template>
     <div class="h-10 w-10 relative">
-        {{procentaj}}
         <svg viewBox="0 0 120 120" class="transform -rotate-90">
             <circle
             cx="60"
