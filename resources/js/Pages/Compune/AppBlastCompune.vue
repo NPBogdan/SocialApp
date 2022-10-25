@@ -8,11 +8,21 @@
                 v-model="form.body"
             />
             <div class="flex justify-between">
-                <div>
-                    Actions
-                </div>
+                <ul class="flex items-center">
+                    <li class="mr-4">
+                        <app-blast-compune-media-button
+                            id="media-compune"
+                            @selected="manageMediaSelected"
+                        />
+                    </li>
+                </ul>
+
+
                 <div class="flex items-center justify-end">
-                    <app-blast-compune-limit />
+                    <app-blast-compune-limit
+                        :body="form.body"
+                        class="mr-2"
+                    />
                     <button
                         type="submit"
                         class="bg-red-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none">
@@ -28,12 +38,19 @@
 import axios from 'axios'
 import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
 import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
+import AppBlastCompuneMediaButton from "@/Pages/Compune/Media/AppBlastCompuneMediaButton.vue"
+
 export default {
-    components: {AppBlastCompuneTextarea,AppBlastCompuneLimit},
+    components: {AppBlastCompuneTextarea, AppBlastCompuneLimit, AppBlastCompuneMediaButton},
     data() {
         return {
             form: {
-                body: ''
+                body: '',
+                media: []
+            },
+            media: {
+                images: [],
+                videos: null
             }
         }
     },
@@ -41,6 +58,9 @@ export default {
         async submit() {
             await axios.post('/api/blasts', this.form)
             this.form.body = ''
+        },
+        manageMediaSelected(files) {
+            console.log(files)
         }
     },
 }

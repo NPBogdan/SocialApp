@@ -24,7 +24,6 @@
         "@mahdikhashan/vue3-click-outside": "^0.1.2",
         "@vue-hero-icons/outline": "^1.7.2",
         "@vue-hero-icons/solid": "^1.7.2",
-        "click-outside-vue3": "^4.0.1",
         "laravel-echo": "^1.14.0",
         "pusher-js": "^4.3.1",
         "vue-observe-visibility": "^1.0.0",
