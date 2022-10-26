@@ -30,4 +30,8 @@ class Blast extends Model
     public function reblastedBlast(){
         return $this->hasOne(Blast::Class,'original_blast_id','id');
     }
+
+    public function media(){
+        return $this->hasMany(BlastMedia::class);
+    }
 }

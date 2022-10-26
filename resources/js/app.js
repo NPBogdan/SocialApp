@@ -8,7 +8,6 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {ObserveVisibility} from 'vue-observe-visibility';
 import {createStore} from 'vuex';
-import vClickOutside from "click-outside-vue3";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
