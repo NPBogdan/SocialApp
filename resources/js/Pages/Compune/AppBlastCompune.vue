@@ -1,6 +1,6 @@
 <template>
     <form class="flex" @submit.prevent="submit">
-        <img :src="$user.avatar" class="w-12 w-12 h-12 mr-3 rounded-full" alt="User avatar">
+        <img :src="$user.avatar" class="w-12 h-12 mr-3 rounded-full" alt="User avatar">
 
         <div class="flex-grow">
             <app-blast-compune-textarea
@@ -78,8 +78,42 @@ export default {
     },
     methods: {
         async submit() {
+            let mediaResult = await this.uploadMedia()
+            //Adaugam toate id-urile fisierelor in corpul formularului
+            this.form.media = mediaResult.data.data.map(function (item) {
+                return item.id
+            })
+
             await axios.post('/api/blasts', this.form)
             this.form.body = ''
+            this.form.media = []
+            this.media.videos = null
+            this.media.images = []
+        },
+
+        async uploadMedia() {
+            return await axios.post('/api/media', this.buildMediaForm(), {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        },
+
+        //Functie pentru a crea formularul media pe care i-l urcam
+        buildMediaForm() {
+            let form = new FormData()
+
+            if (this.media.images.length) {
+                this.media.images.forEach((image, index) => {
+                    form.append(`media[${index}]`, image)
+                })
+            }
+
+            if (this.media.videos) {
+                form.append('media[0]', this.media.videos)
+            }
+
+            return form
         },
 
         manageMediaSelected(files) {
