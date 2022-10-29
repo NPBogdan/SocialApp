@@ -8,6 +8,8 @@
             />
             <span class="text-gray-600"> {{ media }}</span>
 
+            <app-blast-media-progress class="mb-4" :progress="media.progress" v-if="media.progress"/>
+
             <app-blast-image-preview
                 :images="media.images"
                 v-if="media.images.length"
@@ -54,9 +56,11 @@ import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
 import AppBlastCompuneMediaButton from "@/Pages/Compune/Media/AppBlastCompuneMediaButton.vue"
 import AppBlastImagePreview from "@/Pages/Compune/Media/AppBlastImagePreview.vue";
 import AppBlastVideoPreview from "@/Pages/Compune/Media/AppBlastVideoPreview.vue";
+import AppBlastMediaProgress from "@/Pages/Compune/Media/AppBlastMediaProgress.vue";
 
 export default {
     components: {
+        AppBlastMediaProgress,
         AppBlastCompuneTextarea,
         AppBlastCompuneLimit,
         AppBlastCompuneMediaButton,
@@ -71,32 +75,40 @@ export default {
             },
             media: {
                 images: [],
-                videos: null
+                videos: null,
+                progress: 0
             },
             mediaTypes: {}
         }
     },
     methods: {
         async submit() {
-            let mediaResult = await this.uploadMedia()
-            //Adaugam toate id-urile fisierelor in corpul formularului
-            this.form.media = mediaResult.data.data.map(function (item) {
-                return item.id
-            })
-
+            if (this.media.images.length > 0 || this.media.videos) {
+                let mediaResult = await this.uploadMedia()
+                //Adaugam toate id-urile fisierelor in corpul formularului
+                this.form.media = mediaResult.data.data.map(function (item) {
+                    return item.id
+                })
+            }
             await axios.post('/api/blasts', this.form)
             this.form.body = ''
             this.form.media = []
             this.media.videos = null
             this.media.images = []
+            this.media.progress = 0
         },
 
         async uploadMedia() {
             return await axios.post('/api/media', this.buildMediaForm(), {
                 headers: {
                     'Content-Type': 'multipart/form-data'
-                }
+                },
+                onUploadProgress: this.administreazaProgresulUpload
             })
+        },
+
+        administreazaProgresulUpload(event) {
+            this.media.progress = parseInt(Math.round((event.loaded / event.total) * 100)) //Calculam procentajul ramas pana la urcarea continutului
         },
 
         //Functie pentru a crea formularul media pe care i-l urcam

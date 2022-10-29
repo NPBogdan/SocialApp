@@ -14,7 +14,17 @@ class CronologieController extends Controller
     }
 
     public function index(Request $request){
-        $blasts = $request->user()->blastsFromFollowing()->latest()->with(['user','likes'])->paginate(5);
+        $blasts = $request->user()->blastsFromFollowing()->latest()->with([
+            'user',
+            'likes',
+            'reblasts',
+            'media.baseMedia',
+            'originalBlast.user',
+            'originalBlast.likes',
+            'originalBlast.reblasts',
+            'originalBlast.media.baseMedia',
+            ])
+            ->paginate(5);
 
         return new BlastCollection($blasts);
     }
