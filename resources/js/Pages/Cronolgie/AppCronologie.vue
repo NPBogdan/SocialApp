@@ -12,7 +12,6 @@
     <div
         v-if="blasts.length"
         v-observe-visibility="scrollBottomCronologie">
-
     </div>
 </template>
 

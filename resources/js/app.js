@@ -8,12 +8,13 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {ObserveVisibility} from 'vue-observe-visibility';
 import {createStore} from 'vuex';
-
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+import { vfmPlugin } from 'vue-final-modal'
+import AppBlastReblastModal from "@/Pages/Modale/AppBlastReblastModal.vue"
 
 import cronologie from "@/Store/cronologie.js";
 import likes from "@/Store/likes.js";
-import reblasts from "@/Store/reblasts.js"
+import reblasts from "@/Store/reblasts.js";
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'BlastApp';
 
 const store = createStore({
     modules: {
@@ -31,6 +32,11 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(store)
+            .use(vfmPlugin({
+                key: '$vfm',
+                componentName: 'VueFinalModal',
+                dynamicContainerName: 'ModalsContainer',
+            }))
             //Am introdus directiva din pachetul observe-visibility
             .directive('observe-visibility', {
                 beforeMount: (el, binding, vnode) => {
@@ -40,7 +46,7 @@ createInertiaApp({
                 update: ObserveVisibility.update,
                 unmounted: ObserveVisibility.unbind,
             });
-
+        myApp.component("AppBlastReblastModal", AppBlastReblastModal)
         // config global property after createApp and before mount
         myApp.config.globalProperties.$user = User;
 

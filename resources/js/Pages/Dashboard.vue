@@ -12,8 +12,8 @@
 
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import {Head} from '@inertiajs/inertia-vue3';
 import AppCronologie from "@/Pages/Cronolgie/AppCronologie.vue";
+import {Head} from '@inertiajs/inertia-vue3';
 
 export default {
     components:{AppCronologie,Head,BreezeAuthenticatedLayout}
