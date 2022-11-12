@@ -5,24 +5,9 @@
         <div class="flex-grow">
             <app-blast-compune-textarea
                 v-model="form.body"
-                placeholder="Ce mai este nou?"
+                placeholder="Scrie aici..."
             />
             <span class="text-gray-600"> {{ media }}</span>
-
-            <app-blast-media-progress class="mb-4" :progress="media.progress" v-if="media.progress"/>
-
-            <app-blast-image-preview
-                :images="media.images"
-                v-if="media.images.length"
-                @removed="removeImage"
-            />
-
-            <app-blast-video-preview
-                :video="media.videos"
-                v-if="media.videos"
-                @removed="removeVideo"
-            />
-
 
             <div class="flex justify-between">
                 <ul class="flex items-center">
@@ -42,7 +27,7 @@
                     <button
                         type="submit"
                         class="bg-red-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none">
-                        Blast
+                        Reblast
                     </button>
                 </div>
             </div>
@@ -62,6 +47,7 @@ import axios from "axios";
 import compose from '../../Mixins/compose.js'
 
 export default {
+    name:'AppBlastReblastCompune',
     components: {
         AppBlastMediaProgress,
         AppBlastCompuneTextarea,
@@ -75,12 +61,8 @@ export default {
     ],
     methods:{
         async post(){
-            await axios.post('/api/blasts', this.form)
+            console.log("A fost creat un reblast")
         }
     }
 }
 </script>
-
-<style scoped>
-
-</style>
