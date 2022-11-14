@@ -56,6 +56,12 @@ export default {
                 component: 'AppBlastReblastModal',
                 bind: {
                     blast: this.blast
+                },
+                on:{
+                    success(close) {
+                        console.log('success')
+                        close()
+                    },
                 }
             })
         },

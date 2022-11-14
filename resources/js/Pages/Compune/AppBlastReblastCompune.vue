@@ -18,7 +18,6 @@
                         />
                     </li>
                 </ul>
-
                 <div class="flex items-center justify-end">
                     <app-blast-compune-limit
                         :body="form.body"
@@ -36,18 +35,17 @@
 </template>
 
 <script>
-
 import AppBlastMediaProgress from "@/Pages/Compune/Media/AppBlastMediaProgress.vue";
 import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
 import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
 import AppBlastCompuneMediaButton from "@/Pages/Compune/Media/AppBlastCompuneMediaButton.vue";
 import AppBlastImagePreview from "@/Pages/Compune/Media/AppBlastImagePreview.vue";
 import AppBlastVideoPreview from "@/Pages/Compune/Media/AppBlastVideoPreview.vue";
-import axios from "axios";
 import compose from '../../Mixins/compose.js'
+import {mapActions} from "vuex";
 
 export default {
-    name:'AppBlastReblastCompune',
+    name: 'AppBlastReblastCompune',
     components: {
         AppBlastMediaProgress,
         AppBlastCompuneTextarea,
@@ -56,13 +54,28 @@ export default {
         AppBlastImagePreview,
         AppBlastVideoPreview
     },
+    props: {
+        blast: {
+            type: Object,
+            required: true
+        }
+    },
     mixins: [
         compose
     ],
-    methods:{
-        async post(){
-            console.log("A fost creat un reblast")
-        }
-    }
+    methods: {
+        async post() {
+            await this.citareBlast({
+                blast: this.blast,
+                data: this.form
+            })
+
+            this.$emit('success')
+        },
+        ...mapActions({
+            citareBlast: 'cronologie/citareBlast'
+        })
+    },
+    emits: ['success']
 }
 </script>
