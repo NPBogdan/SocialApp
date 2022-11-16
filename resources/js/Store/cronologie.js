@@ -47,6 +47,18 @@ export default {
                 }
                 return t;
             })
+        },
+        SET_REPLIES(state, {id, count}) {
+            state.blasts = state.blasts.map((t) => {
+                if (t.id === id) {
+                    t.replies_count = count
+                }
+                //Verificam daca proprietatea 'id' exista in 'original_blast pentru ca unele blasturi nu sunt redistribuite
+                if(get(t.original_blast,'id') === id){
+                    t.original_blast.replaies_count = count
+                }
+                return t;
+            })
         }
     },
     actions: {

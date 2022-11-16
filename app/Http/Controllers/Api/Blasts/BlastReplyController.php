@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Blasts;
 
 use App\Blasts\BlastType;
+use App\Events\Blasts\BlastRepliesWereUpdated;
 use App\Http\Controllers\Controller;
 use App\Models\Blast;
 use App\Models\BlastMedia;
@@ -23,5 +24,7 @@ class BlastReplyController extends Controller
         foreach($request->media as $id){
             $reply->media()->save(BlastMedia::find($id));
         }
+
+        broadcast(new BlastRepliesWereUpdated($blast));
     }
 }

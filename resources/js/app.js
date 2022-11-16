@@ -8,13 +8,14 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {ObserveVisibility} from 'vue-observe-visibility';
 import {createStore} from 'vuex';
-import { vfmPlugin } from 'vue-final-modal'
+import {vfmPlugin} from 'vue-final-modal'
 import AppBlastReblastModal from "@/Pages/Modale/AppBlastReblastModal.vue"
 import AppBlastReplyModal from "@/Pages/Modale/AppBlastReplyModal.vue";
 
 import cronologie from "@/Store/cronologie.js";
 import likes from "@/Store/likes.js";
 import reblasts from "@/Store/reblasts.js";
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'BlastApp';
 
 const store = createStore({
@@ -74,6 +75,11 @@ Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
         id: event.id,
         count: event.count
     })
+}).listen('.BlastRepliesWereUpdated', (event) => {
+    store.commit('cronologie/SET_REPLIES', {
+        id: event.id,
+        count: event.count
+    })
 }).listen('.BlastWasDeleted', (event) => {
-    store.commit('cronologie/ELIMINATE_BLAST',event.id)
+    store.commit('cronologie/ELIMINATE_BLAST', event.id)
 })
