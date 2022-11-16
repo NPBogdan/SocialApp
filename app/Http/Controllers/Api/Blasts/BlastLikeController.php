@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Blasts;
 use App\Events\Blasts\BlastLikesWereUpdate;
 use App\Http\Controllers\Controller;
 use App\Models\Blast;
+use App\Notifications\Blasts\BlastLiked;
 use Illuminate\Http\Request;
 
 class BlastLikeController extends Controller
@@ -13,7 +14,7 @@ class BlastLikeController extends Controller
         $this->middleware(['auth:sanctum']);
     }
 
-    public function store(BLast $blast, Request $request)
+    public function store(Blast $blast, Request $request)
     {
         //Trebuie sa putem da like o singura data unei postari
         if($request->user()->hasLiked($blast)){
@@ -22,6 +23,12 @@ class BlastLikeController extends Controller
         $request->user()->likes()->create([
             'blast_id' => $blast->id
         ]);
+
+//        if($request->user()->id !== $blast->user_id){
+            //Notificam utilizatorul postarii despre faptul ca a primit like
+            $blast->user->notify(new BlastLiked($request->user(),$blast));
+//        }
+
 
         broadcast(new BlastLikesWereUpdate($request->user(),$blast));
     }
