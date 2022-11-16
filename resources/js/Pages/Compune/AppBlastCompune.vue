@@ -7,7 +7,6 @@
                 v-model="form.body"
                 placeholder="Ce mai este nou?"
             />
-            <span class="text-gray-600"> {{ media }}</span>
 
             <app-blast-media-progress class="mb-4" :progress="media.progress" v-if="media.progress"/>
 

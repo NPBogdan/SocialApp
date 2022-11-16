@@ -59,6 +59,10 @@ export default {
         },
         async citareBlast(_,{blast,data}){
             await axios.post(`/api/blasts/${blast.id}/quotes`,data)
+        },
+
+        async replyBlast(_,{blast,data}){
+            await axios.post(`/api/blasts/${blast.id}/replies`,data)
         }
 
     }

@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class BlastLikeController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth:sanctum']);
+    }
+
     public function store(BLast $blast, Request $request)
     {
         //Trebuie sa putem da like o singura data unei postari

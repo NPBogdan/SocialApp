@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class BlastQuoteController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth:sanctum']);
+    }
+
     public function store(Blast $blast,Request $request){
         $reblast = $request->user()->blasts()->create([
             'type' => BlastType::CITAT,

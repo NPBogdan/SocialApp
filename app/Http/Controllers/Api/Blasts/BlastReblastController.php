@@ -6,11 +6,16 @@ use App\Blasts\BlastType;
 use App\Events\Blasts\BlastReblastsWereUpdated;
 use App\Events\Blasts\BlastWasCreated;
 use App\Events\Blasts\BlastWasDeleted;
+use App\Http\Controllers\Controller;
 use App\Models\Blast;
 use Illuminate\Http\Request;
 
-class BlastReblastController
+class BlastReblastController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth:sanctum']);
+    }
+
     public function store(Blast $blast,Request $request){
         $reblast = $request->user()->blasts()->create([
             'type' => BlastType::REBLAST,

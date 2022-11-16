@@ -7,7 +7,6 @@
                 v-model="form.body"
                 placeholder="Lasă un comentariu..."
             />
-            <span class="text-gray-600"> {{ media }}</span>
 
             <app-blast-media-progress class="mb-4" :progress="media.progress" v-if="media.progress"/>
 
@@ -23,12 +22,11 @@
                 @removed="removeVideo"
             />
 
-
             <div class="flex justify-between">
                 <ul class="flex items-center">
                     <li class="mr-4">
                         <app-blast-compune-media-button
-                            id="media-compune"
+                            id="media-compune-reply"
                             @selected="manageMediaSelected"
                         />
                     </li>
@@ -51,7 +49,6 @@
 </template>
 
 <script>
-
 import AppBlastMediaProgress from "@/Pages/Compune/Media/AppBlastMediaProgress.vue";
 import AppBlastCompuneTextarea from "@/Pages/Compune/AppBlastCompuneTextarea.vue";
 import AppBlastCompuneLimit from "@/Pages/Compune/AppBlastCompuneLimit.vue";
@@ -59,6 +56,7 @@ import AppBlastCompuneMediaButton from "@/Pages/Compune/Media/AppBlastCompuneMed
 import AppBlastImagePreview from "@/Pages/Compune/Media/AppBlastImagePreview.vue";
 import AppBlastVideoPreview from "@/Pages/Compune/Media/AppBlastVideoPreview.vue";
 import compose from '../../Mixins/compose.js'
+import {mapActions} from "vuex";
 
 export default {
     name:'AppBlastReplyCompune',
@@ -79,10 +77,19 @@ export default {
     mixins: [
         compose
     ],
-    methods:{
-        async post(){
-            console.log('Merge')
-        }
-    }
+    methods: {
+        async post() {
+            await this.replyBlast({
+                blast: this.blast,
+                data: this.form
+            })
+
+            this.$emit('success');
+        },
+        ...mapActions({
+            replyBlast: 'cronologie/replyBlast'
+        })
+    },
+    emits: ['success']
 }
 </script>

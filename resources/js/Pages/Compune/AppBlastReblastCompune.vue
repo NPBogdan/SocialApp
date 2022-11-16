@@ -7,8 +7,6 @@
                 v-model="form.body"
                 placeholder="Scrie aici..."
             />
-            <span class="text-gray-600"> {{ media }}</span>
-
             <div class="flex justify-between">
                 <ul class="flex items-center">
 

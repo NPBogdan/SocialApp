@@ -1,0 +1,269 @@
+[33mcommit 25e5297d90f58a4f1de00fca90b62acee5f24d67[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Nov 14 14:54:08 2022 +0000
+
+    Stocare unui reblast in baza de date
+
+[33mcommit da1d77848a7dace1c5f7e4c4f3c4b3d7a2b380c8[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sat Nov 12 12:21:33 2022 +0000
+
+    Mutare functionalitate AppBlastCompuneTextarea intr-un mixin pentru a putea refolosi
+
+[33mcommit 85ff021e5c365a6e7a754b300ecd7c8212822314[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Fri Nov 11 18:20:20 2022 +0000
+
+    Instalare VueFinalModal si create Modal Blast Citat
+
+[33mcommit ad90af2e04ab490935e2554975e058012d44dad9[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sat Oct 29 17:39:38 2022 +0000
+
+    Aisarea barei de progres la upload si reducerea numarului de request-uri la Cronologie
+
+[33mcommit 3baf03ec383b073185f0805fe0dd1a5243baf400[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Thu Oct 27 13:01:52 2022 +0000
+
+    Afisarea de imagini si videoclipuri in blasturi
+
+[33mcommit b864b916d68d2a1c073d6d5c444310967558844c[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Wed Oct 26 12:49:43 2022 +0000
+
+    Urcarea de continut media si crearea unei liste id-urile modelelor create
+
+[33mcommit e0412f5ae64d37eb90628c0cf75e6321b7f32bb3[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 25 21:01:33 2022 +0000
+
+    Am instalat pachetul MediaLibrary de la Laravel
+
+[33mcommit f776cf4a22aee0df1a3c85e9b079c16489f7c27b[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 25 20:44:38 2022 +0000
+
+    Stergea de media dintre cele selectate
+
+[33mcommit 3b246f2ba4c7d4db54b1d2d439f26ff449767e63[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 25 20:16:24 2022 +0000
+
+    Afisarea imaginilor si clipurilor selectate
+
+[33mcommit 7030aa54448f28e7edc318119ad58fc06ed561f1[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 25 19:39:57 2022 +0000
+
+    41 . Am filtrat tipurile de media care se pot posta
+
+[33mcommit dc43e570d0fd1efead531ed6074829b56df3d3b9[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 25 17:20:09 2022 +0000
+
+    Selectarea media pentru a fi atasate la blast
+
+[33mcommit 29b93ba0ac4d617307eee7b3a70f041b2c6de5c3[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Oct 23 08:38:24 2022 +0000
+
+    Indicatorul de limita a blasturilor
+
+[33mcommit 2270eaf2031ce62573d6550525b29672b7a45435[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Oct 23 08:18:48 2022 +0000
+
+    BUG FIX problema la dublu event emit
+
+[33mcommit 18cedbe171b402f04f8190999ad47561eb2edce4[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 18 21:05:52 2022 +0000
+
+    Actualizare in timp real a reblasturilor sterse din cronologie,BUG la sterge si fac doua request-uri ,unul e 200 altul 404
+
+[33mcommit b0fd0c806a8911735b31f088d9f7eec427bdc0cf[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 18 20:49:19 2022 +0000
+
+    Am reparat un BUG infect legat de AppBlastVariantCitat si mici modificari de Reblasts
+
+[33mcommit aca7e168272259aa8b0e753c1baf1c9bedeb041a[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 17 14:44:22 2022 +0000
+
+    Actualizare reblast in timp real in cronologie,PROBLEMA emitere event duplicat si nu se schimba culoare decat dupa refresh
+
+[33mcommit ac52bef7c59b9eff4bad59688e9c7fec8b5cfeb0[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 17 13:29:41 2022 +0000
+
+    Reblast si unreblast ,PROBLEMA emitere event la post si delete
+
+[33mcommit 25d41eebb25ebece93516e58fbc147859a707433[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Oct 16 14:00:52 2022 +0000
+
+    Modificare metodata de afisare a fistribuirilor mai buna
+
+[33mcommit 59d9b9f4dd234987d8e7f6b3dee54e59af09f1c0[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Oct 16 11:52:54 2022 +0000
+
+    Afisarea numarului de distribuiri
+
+[33mcommit 9069558f2a19aca439cd6641cf3a3f51e8ef7df6[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Wed Oct 12 17:28:00 2022 +0000
+
+    Meniu de tip dropdown pentru reblast,PROBLEMA la vue-click-outsidegit add .
+
+[33mcommit 29598961f0802297bf761a490dc39b4d48f67293[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 11 11:20:35 2022 +0000
+
+    Actualizarea numarului de like-uri la blasturile distribuite si la cele citate
+
+[33mcommit f9d42279f2eb8a1ef11f4646a7132926a9c9bc99[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 11 09:45:48 2022 +0000
+
+    Actualizarea propriilor noastre like-uri in timp real
+
+[33mcommit 61169fb1c74eb8026db1f3a0404287d3f2874178[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 11 09:23:09 2022 +0000
+
+    Actualizarea aprecierilor in timp real
+
+[33mcommit 6215bb433d547f1bbc1e72a7f1a61264169df474[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 11 08:49:52 2022 +0000
+
+    Like la Blast
+
+[33mcommit baa3338b072c6946707a32efc7b0cd87dc31a7fe[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 10 16:07:59 2022 +0000
+
+    Like Model,Migration and relationship hasMany
+
+[33mcommit eb538000efe3cc0187477d7e21bd8c3936d9de57[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 10 15:59:20 2022 +0000
+
+    Am creat butoanele de actiune pentru Like,Comentariu si Distribuire
+
+[33mcommit 041fa56d870491c32ead31b6dba32258732ee205[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 10 15:20:08 2022 +0000
+
+    Ajustarea automata la inaltimea campului mare de text
+
+[33mcommit b72f189dde2d27777be68bdd3d94b43cd1b14906[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Oct 9 18:54:41 2022 +0000
+
+    Afisarea blasturilor citate
+
+[33mcommit f95ac376935295d057481724ae2d28e7acfe284e[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Thu Oct 6 13:30:51 2022 +0000
+
+    Componente dinamice v2
+
+[33mcommit d925a64bba89413426128954f4c491a8807b7b6e[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Thu Oct 6 11:00:36 2022 +0000
+
+    Componente dinamice v1
+
+[33mcommit af27233bcf494799338386b9114a459d06cfef3e[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Tue Oct 4 15:19:03 2022 +0000
+
+    Functionalitatea de reblast
+
+[33mcommit 56ee4190d4262abfc757080c02dd07b6a145f570[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 3 21:29:12 2022 +0000
+
+    Definirea blasturilor
+
+[33mcommit 3487221269332fb22f7d1097ec227988b8c42936[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 3 21:15:01 2022 +0000
+
+    Laravel Telescope
+
+[33mcommit 04df2dd1e5272cec90ee0a1c9a494920523f6bb3[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 3 16:59:51 2022 +0000
+
+    Filtram postarile pentru a nu exista duplicate la afisare
+
+[33mcommit 0d71c758f393a5d705f2ea3ac57fadb133ed2886[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Oct 3 16:33:20 2022 +0000
+
+    Actualizare cronologie cu blasturi in timp real!
+
+[33mcommit dedcb0e3b5301da17da01ec2b0b0ff6ea441c091[m
+Author: Norocel Petru Bogdan <norocelbogdan@gmail.com>
+Date:   Sat Sep 17 16:57:06 2022 +0300
+
+    Laravel WebSockets,pusher-server-api si am configurat in .env setarile pentru Pusher
+
+[33mcommit fa424ad742d6b4c50892c48c93f8ff9ffc3cab53[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sat Sep 17 12:25:59 2022 +0000
+
+    Am creat o clasa de validare pentru Blasturi,am ordonat cronologia si acum putem adauga in baza de date postari Axios post
+
+[33mcommit 49a5e9a0cb418b5f7da613fd0bdd300332867595[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Thu Sep 15 14:00:18 2022 +0000
+
+    Scroll infint pentru a afisa mai multe blasturi in cronologie
+
+[33mcommit 82b78e0c9621c3ea30c1f30a65368a572e19ac45[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Sep 11 14:12:35 2022 +0000
+
+    Implementare Vuex cu OPTIONS API
+
+[33mcommit a2300de982197c15afa3bb46371e705086c83448[m
+Author: Norocel Petru Bogdan <norocelbogdan@gmail.com>
+Date:   Fri Sep 9 15:36:32 2022 +0300
+
+    Creare componente pentru username si pentru blast,adaugare avatar pentru utilizator
+
+[33mcommit 9cff80c9839e62d326510370acb855e1145ed878[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Thu Sep 8 20:19:18 2022 +0000
+
+    Am adaugat putin aspect pentru cronologie si pentru navigatie din cronologie
+
+[33mcommit 6cb0662c7537d8aa206bddf531818a403a0676d6[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Mon Sep 5 12:07:32 2022 +0000
+
+    Creare resursa pentru Blast si pentru User
+
+[33mcommit abea9bdcce12f4278687320611fd1622fcd9ad28[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Sep 4 22:47:43 2022 +0000
+
+    Afisarea blast-urilor persoanelor pe care le urmarim
+
+[33mcommit b86f29a33aa30f53d842255bb047aa06a7a78a7e[m
+Author: vagrant <norocelbogdan@gmail.com>
+Date:   Sun Sep 4 18:32:28 2022 +0000
+
+    Relatia de urmaritor
+
+[33mcommit dc76e486b8ffb549085614cf329aafee0b8e5342[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Sep 4 17:29:42 2022 +0000
+
+    First commit
