@@ -29,7 +29,7 @@ import AppBlastVariantBlast from "@/Pages/Blasts/Variants/AppBlastVariantBlast.v
 import AppBlastActionGroup from "@/Pages/Blasts/Actiuni/AppBlastActionGroup.vue";
 
 export default {
-    components: {AppBlastActionGroup, AppBlastVariantBlast, AppBlastUsername},
+    components: {AppBlastUsername,AppBlastVariantBlast,AppBlastActionGroup},
     props: {
         blast: {
             required: true,

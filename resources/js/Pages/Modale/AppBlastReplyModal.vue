@@ -5,17 +5,7 @@
         classes="flex justify-center items-center"
         content-class="relative flex flex-col max-h-full mx-4 p-4 border dark:border-gray-800 rounded bg-white dark:bg-gray-900"
     >
-        <app-blast-reblast-compune
-            :blast="blast"
-            @success="$emit('success',close)"
-        />
-
-        <component
-            :is="`app-blast-variant-${blast.type}`"
-            :blast="blast"
-            v-if="blast"
-            class="border border-gray-500 rounded-lg mt-4 p-4"
-        />
+    {{blast}}
     </vue-final-modal>
 </template>
 
@@ -40,6 +30,5 @@ export default {
             default: {}
         }
     },
-    emits: ['confirm', 'cancel']
 }
 </script>

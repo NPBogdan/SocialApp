@@ -10,6 +10,7 @@ import {ObserveVisibility} from 'vue-observe-visibility';
 import {createStore} from 'vuex';
 import { vfmPlugin } from 'vue-final-modal'
 import AppBlastReblastModal from "@/Pages/Modale/AppBlastReblastModal.vue"
+import AppBlastReplyModal from "@/Pages/Modale/AppBlastReplyModal.vue";
 
 import cronologie from "@/Store/cronologie.js";
 import likes from "@/Store/likes.js";
@@ -47,6 +48,7 @@ createInertiaApp({
                 unmounted: ObserveVisibility.unbind,
             });
         myApp.component("AppBlastReblastModal", AppBlastReblastModal)
+        myApp.component("AppBlastReplyModal", AppBlastReplyModal)
         // config global property after createApp and before mount
         myApp.config.globalProperties.$user = User;
 

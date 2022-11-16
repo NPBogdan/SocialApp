@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +10,10 @@ class Blast extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function scopeParent(Builder $builder){
+        return $builder->whereNull('parent_id');
+    }
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -33,5 +38,9 @@ class Blast extends Model
 
     public function media(){
         return $this->hasMany(BlastMedia::class);
+    }
+
+    public function replies(){
+        return $this->hasMany(Blast::class,'parent_id');
     }
 }

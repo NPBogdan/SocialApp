@@ -1,7 +1,8 @@
 <template>
     <ul class="flex mt-4">
         <li class="w-3/12">
-            <app-blast-reply-action/>
+            <app-blast-reply-action
+            :blast="blast"/>
         </li>
         <li class="w-3/12">
             <app-blast-reblast-action
