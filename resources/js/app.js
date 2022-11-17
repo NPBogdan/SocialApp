@@ -15,6 +15,7 @@ import AppBlastReplyModal from "@/Pages/Modale/AppBlastReplyModal.vue";
 import cronologie from "@/Store/cronologie.js";
 import likes from "@/Store/likes.js";
 import reblasts from "@/Store/reblasts.js";
+import notifications from "@/Store/notifications.js";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'BlastApp';
 
@@ -22,7 +23,8 @@ const store = createStore({
     modules: {
         cronologie,
         likes,
-        reblasts
+        reblasts,
+        notifications
     }
 })
 

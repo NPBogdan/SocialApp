@@ -6,7 +6,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class NotificationCollection extends ResourceCollection
 {
-
     public $collects = NotificationResource::class;
     /**
      * Transform the resource collection into an array.

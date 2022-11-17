@@ -8,7 +8,8 @@ use ReflectionClass;
 class DatabaseNotificationChannel
 {
     public function send($notifiable,Notification $notification){
-        $data = $notifiable->toArray($notifiable);
+
+        $data = $notification->toArray($notifiable);
 
         return $notifiable->routeNotificationFor('database')->create([
             'id' => $notification->id,

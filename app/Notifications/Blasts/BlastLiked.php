@@ -20,7 +20,7 @@ class BlastLiked extends Notification
      *
      * @return void
      */
-    public function __construct( User $user,Blast $blast)
+    public function __construct(User $user,Blast $blast)
     {
         $this->blast=$blast;
         $this->user=$user;

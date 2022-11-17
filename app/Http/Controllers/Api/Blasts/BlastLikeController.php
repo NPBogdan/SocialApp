@@ -29,7 +29,6 @@ class BlastLikeController extends Controller
             $blast->user->notify(new BlastLiked($request->user(),$blast));
 //        }
 
-
         broadcast(new BlastLikesWereUpdate($request->user(),$blast));
     }
 
