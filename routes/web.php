@@ -34,4 +34,6 @@ Route::get('/notifications',function(){
 
 Route::get('/api/cronologie',[App\Http\Controllers\Api\Cronologie\CronologieController::Class,'index']);
 
+Route::get('/api/notifications',[App\Http\Controllers\Api\Notifications\NotificationController::Class,'index']);
+
 require __DIR__.'/auth.php';

@@ -19,3 +19,6 @@ Route::post('/blasts/{blast}/quotes',[App\Http\Controllers\Api\Blasts\BlastQuote
 Route::post('/media',[App\Http\Controllers\Api\Media\MediaController::Class,'store']);
 Route::get('/media/types',[App\Http\Controllers\Api\Media\MediaTypesController::Class,'index']);
 
+
+
+
