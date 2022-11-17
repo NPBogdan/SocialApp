@@ -24,10 +24,11 @@ class BlastLikeController extends Controller
             'blast_id' => $blast->id
         ]);
 
-//        if($request->user()->id !== $blast->user_id){
+        //Nu trebuie sa primim notificare atunci cand ne dam like singuri
+         if($request->user()->id !== $blast->user_id){
             //Notificam utilizatorul postarii despre faptul ca a primit like
             $blast->user->notify(new BlastLiked($request->user(),$blast));
-//        }
+         }
 
         broadcast(new BlastLikesWereUpdate($request->user(),$blast));
     }

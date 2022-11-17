@@ -9,11 +9,13 @@
 
 <script>
 import AppNotificationBlastLiked from "@/Pages/Notifications/Variants/AppNotificationBlastLiked.vue";
+import AppNotificationBlastReplied from "@/Pages/Notifications/Variants/AppNotificationBlastReplied.vue";
 
 export default {
     name: "AppNotification",
     components: {
-        AppNotificationBlastLiked
+        AppNotificationBlastLiked,
+        AppNotificationBlastReplied
     },
     props: {
         notification: {

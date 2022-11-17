@@ -69,6 +69,10 @@ Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
         id: event.id,
         count: event.count
     })
+    store.commit('notifications/SET_LIKES', {
+        id: event.id,
+        count: event.count
+    })
 }).listen('.BlastReblastsWereUpdated', (event) => {
     if (event.user_id === User.id) {
         store.dispatch('reblasts/syncReblast', event.id);
@@ -77,8 +81,16 @@ Echo.channel('blasts').listen('.BlastLikesWereUpdated', (event) => {
         id: event.id,
         count: event.count
     })
+    store.commit('notifications/SET_REBLASTS', {
+        id: event.id,
+        count: event.count
+    })
 }).listen('.BlastRepliesWereUpdated', (event) => {
     store.commit('cronologie/SET_REPLIES', {
+        id: event.id,
+        count: event.count
+    })
+    store.commit('notifications/SET_REPLIES', {
         id: event.id,
         count: event.count
     })
